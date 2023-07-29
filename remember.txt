@@ -1,0 +1,55 @@
+pip install fastapi uvicorn[standard] sqlalchemy databases psycopg2-binary
+uvicorn main:app --reload
+
+
+
+Alembic (for migrations):
+
+* alembic==1.7.3
+
+Initialize Alembic:
+In your terminal or command prompt, navigate to your project directory and run the following command to initialize Alembic
+
+* alembic init alembic
+
+This will create an alembic directory in your project containing configuration files and folders necessary for Alembic to work.
+
+Configure Alembic:
+Open the alembic.ini file in the alembic directory and configure the database URL. Change the sqlalchemy.url parameter to match your PostgreSQL database URL
+
+Modify the env.py script:
+
+Open the env.py script inside the alembic directory and import your app.database.Base and the model you want to create a table for (Item in your case). Then, associate the Base with the metadata object and add your model(s) to the target_metadata list. It should look like this
+
+for e.g:
+# Modify the line below to import your app's Base and model(s)
+from app.database import Base
+from app.models import Item
+
+# ...
+
+# Add your models to the target_metadata
+target_metadata = [Base.metadata, Item.metadata]
+
+
+Create an initial migration:
+
+1.alembic revision --autogenerate -m "Initial migrations"
+
+
+Apply the migration:
+1.alembic upgrade head
+
+
+DataBase Backup:
+1.pg_dump -U user -d dbname > backup.sql
+
+* If you are using docker container so copy and paste to your host directory
+1.docker cp 8ab2575f455b:./backup.sql ./
+
+Backup Data:
+psql -U user -d dbname < backup.sql
+
+
+
+

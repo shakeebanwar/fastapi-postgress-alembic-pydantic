@@ -1,0 +1,43 @@
+[
+    {
+      "name": "iPhone 13",
+      "description": "The latest iPhone with a powerful A15 Bionic chip."
+    },
+    {
+      "name": "Samsung Galaxy S21",
+      "description": "A flagship Android smartphone with a stunning display."
+    },
+    {
+      "name": "Google Pixel 6",
+      "description": "A feature-rich phone with the latest Android OS."
+    },
+    {
+      "name": "OnePlus 9 Pro",
+      "description": "A high-performance phone known for its smooth experience."
+    },
+    {
+      "name": "Xiaomi Mi 11",
+      "description": "A budget-friendly phone with great value for money."
+    },
+    {
+      "name": "Sony Xperia 1 III",
+      "description": "A multimedia powerhouse with advanced camera features."
+    },
+    {
+      "name": "LG Velvet",
+      "description": "A stylish phone with a sleek design and 5G support."
+    },
+    {
+      "name": "Motorola Edge Plus",
+      "description": "A capable device with a large battery and 108MP camera."
+    },
+    {
+      "name": "Nokia 8.3",
+      "description": "A durable phone with a PureDisplay and ZEISS optics."
+    },
+    {
+      "name": "Realme GT",
+      "description": "A gaming-oriented phone with a Snapdragon 888 chipset."
+    }
+  ]
+  
