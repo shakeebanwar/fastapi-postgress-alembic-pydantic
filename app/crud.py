@@ -1,7 +1,9 @@
 from sqlalchemy.orm import Session
-from app.models import Item
-from app.schemas import ItemCreate, ItemUpdate
+from app.models import Item,User
+from app.schemas import ItemCreate, ItemUpdate,UserBase
 
+
+#items
 def get_item(db: Session, item_id: int):
     return db.query(Item).filter(Item.id == item_id).first()
 
@@ -30,3 +32,19 @@ def delete_item(db: Session, item_id: int):
     db.delete(db_item)
     db.commit()
     return db_item
+
+
+##user
+def get_user_by_email(db: Session, email: str):
+    return db.query(User).filter(User.email == email).first()
+
+
+def create_user(db: Session, user_data: UserBase) -> User:
+    new_user = User(email=user_data.email)
+    new_user.set_password(user_data.password)
+
+    db.add(new_user)
+    db.commit()
+    db.refresh(new_user)
+
+    return new_user

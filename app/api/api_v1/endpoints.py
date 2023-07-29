@@ -3,16 +3,9 @@ from sqlalchemy.orm import Session
 from app import crud, schemas
 from app.database import SessionLocal
 from typing import List
+from app.database import get_db
 
 router = APIRouter()
-
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
 
 @router.get("/", response_model=List[schemas.ItemRead])
 def read_items(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
